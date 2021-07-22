@@ -1,0 +1,93 @@
+<html manifest="Cache.manifest">
+<head>
+	<title>Carga Pirata 755 V4 (Automático)</title>
+</head>
+<style>
+    body{
+		background-color:#000024;
+		background-image:url(img.jpg);
+		background-attachment: fixed;
+		background-size:100%;
+		background-repeat:no-repeat;
+		font-family: fantasy;
+		color:white;
+		text-align:center;
+		font-size:28px;
+	}	
+</style>
+<body id=cache onload="go();">
+<script>
+function DLProgress(e){Percent=(Math.round(e.loaded / e.total * 100));window.cache.innerHTML="<font color=\"white\">INSTALANDO CACHÉ OFFLINE: <font color=\"white\">" + Percent + "%</font>"};
+function DisplayCacheProgress(){setTimeout(function(){window.cache.innerHTML="<font color=\"white\">CACHÉ INSTALADA CON ÉXITO ✔</font> ";localStorage.isPrbCached=true;},1000);setTimeout(function(){window.cache.innerHTML="✔ <font color=\"white\">LISTO! DESCONECTE LA CONSOLA DE INTERNET Y VUELVA PARA CARGAR EL PIRATEO </font>";},3000);}window.applicationCache.addEventListener("progress",DLProgress,false);window.applicationCache.oncached=function(e){DisplayCacheProgress();};window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
+</script>
+<script>
+function print(){}
+
+var scriptCode = '';
+
+function preloadScripts(lst)
+{
+    for(var i = 0; i < lst.length; i++)
+    {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', lst[i], false);
+        xhr.send('');
+        scriptCode += xhr.responseText + '\n';
+    }
+}
+
+function getHashParams()
+{
+    var ans = {};
+    var p = document.location.hash.substr(1).split("&");
+    for(var i = 0; i < p.length; i++)
+    {
+        var kv = p[i].split('=');
+        var k = kv.shift();
+        ans[k] = decodeURIComponent(kv.join('='));
+    }
+    return ans;
+}
+
+function done()
+{
+    if(main_ret == 0 || main_ret == 179)
+    {
+       alert("\n \n YA TIENES TU PS4 PIRATEADA ,PULSA EL BOTÓN PS.\n\n \n  ");
+       read_ptr_at(0);
+    }
+    else
+        alert("EL PIRATEO HA FALLADO ,APAGUE PULSANDO EL BOTÓN DE LA CONSOLA HE INTENTE DE NUEVO.");
+}
+
+window.midExploit = function()
+{
+    var scripts = ['blob.js', 'jb.js'];
+    scripts.push('mira.js');
+    scripts.push('goldhen.js');
+    scripts.push('netcat.js');
+    preloadScripts(scripts, go);
+}
+
+window.postExploit = function()
+{
+    history.pushState({}, '', '.');
+    setTimeout(function() //update the screen one last time...
+    {
+        eval.call(window, scriptCode);
+        done();
+    }, 100);
+};
+</script>
+<div id=dlog></div>
+<button style=opacity:0 id="input1" onfocus="handle2()"></button>
+<button style=opacity:0 id="input2"></button>
+<button style=opacity:0 id="input3" onfocus="handle2()"></button>
+<select style=opacity:0 id="select1">
+<option value="value1">Value1</option>
+</select>
+<script src="utils.js"></script>
+<script src="int64.js"></script>
+<script src="ps4.js"></script>
+</body>
+</html>
